@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ✅ 全局定义：通用属性 -->
+    <attr name="hint" format="string" />
+    <attr name="required" format="boolean" />
+    <attr name="readonly" format="boolean" />
+    <attr name="borderColor" format="color" />
+    <attr name="borderWidth" format="dimension" />
+    <attr name="cornerRadius" format="dimension" />
+    <attr name="backgroundColor" format="color" />
+    <attr name="iconStart" format="reference" />
+    <attr name="iconEnd" format="reference" />
+    <attr name="iconPadding" format="dimension" />
+    <attr name="iconWidth" format="dimension" />
+    <attr name="iconHeight" format="dimension" />
+
+
+    <!-- ✅ 独有属性（只供 TextArea 使用） -->
+    <attr name="maxLength" format="integer" />
+    <attr name="showCounter" format="boolean" />
+
+    <!-- ✅ FormTextInput 使用的属性集合 -->
+    <declare-styleable name="FormTextInput">
+        <attr name="hint" />
+        <attr name="required" />
+        <attr name="readonly" />
+        <attr name="borderColor" />
+        <attr name="borderWidth" />
+        <attr name="cornerRadius" />
+        <attr name="backgroundColor" />
+        <attr name="iconStart" />
+        <attr name="iconEnd" />
+        <attr name="iconPadding" />
+        <attr name="iconWidth" />
+        <attr name="iconHeight" />
+    </declare-styleable>
+
+    <!-- ✅ FormTextAreaView 使用的属性集合 -->
+    <declare-styleable name="FormTextAreaView">
+        <attr name="hint" />
+        <attr name="required" />
+        <attr name="readonly" />
+        <attr name="borderColor" />
+        <attr name="borderWidth" />
+        <attr name="cornerRadius" />
+        <attr name="backgroundColor" />
+        <attr name="maxLength" />
+        <attr name="showCounter" />
+    </declare-styleable>
+
+    <!-- ✅ FormDatePickerView 使用的属性集合 -->
+    <declare-styleable name="FormDatePickerView">
+        <attr name="hint" />
+        <attr name="required" />
+        <attr name="readonly" />
+        <attr name="borderColor" />
+        <attr name="borderWidth" />
+        <attr name="cornerRadius" />
+        <attr name="backgroundColor" />
+        <attr name="iconEnd" />
+        <attr name="iconWidth" />
+        <attr name="iconHeight" />
+        <attr name="iconPadding" />
+    </declare-styleable>
+
+</resources>

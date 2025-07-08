@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <cn.asrobot.form.components.FormTextInput
+        android:id="@+id/inputName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:backgroundColor="#FFFFFF"
+        app:borderColor="#FF5722"
+        app:borderWidth="1dp"
+        app:cornerRadius="12dp"
+        app:hint="请输入姓名"
+        app:iconPadding="8dp"
+        app:iconStart="@drawable/phone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:required="true" />
+
+    <cn.asrobot.form.components.FormTextAreaView
+        android:id="@+id/formTextArea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:backgroundColor="#FFF8E1"
+        app:borderColor="#FF6200EE"
+        app:borderWidth="1dp"
+
+        app:cornerRadius="6dp"
+        app:hint="请输入备注"
+
+        app:layout_constraintTop_toBottomOf="@+id/inputName"
+        app:maxLength="200"
+        app:readonly="false"
+        app:required="true"
+        app:showCounter="true" />
+
+    <cn.asrobot.form.components.FormDatePickerView
+        android:id="@+id/formDatePicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:backgroundColor="#FFFFFF"
+        app:borderColor="#CCCCCC"
+        app:borderWidth="1dp"
+        app:cornerRadius="8dp"
+        app:hint="yyyy-mm-dd"
+        app:layout_constraintTop_toBottomOf="@id/formTextArea"
+        app:readonly="false"
+        app:required="true" />
+    
+</androidx.constraintlayout.widget.ConstraintLayout>
