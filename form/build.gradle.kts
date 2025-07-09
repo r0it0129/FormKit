@@ -3,7 +3,7 @@ plugins {
 }
 
 group = "com.github.r0it0129"
-version = "1.0.0"
+version = "1.0.2"
 
 android {
     namespace = "cn.asrobot.form"

@@ -64,4 +64,19 @@
         <attr name="iconPadding" />
     </declare-styleable>
 
+    <!-- ✅ FormSinglePickerView 使用的属性集合 -->
+    <declare-styleable name="FormSinglePickerView">
+        <attr name="hint" />
+        <attr name="required" />
+        <attr name="readonly" />
+        <attr name="borderColor" />
+        <attr name="borderWidth" />
+        <attr name="cornerRadius" />
+        <attr name="backgroundColor" />
+        <attr name="iconEnd" />
+        <attr name="iconWidth" />
+        <attr name="iconHeight" />
+        <attr name="iconPadding" />
+    </declare-styleable>
+
 </resources>
