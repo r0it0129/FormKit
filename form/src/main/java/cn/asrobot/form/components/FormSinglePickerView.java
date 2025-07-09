@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.asrobot.form.R;
+import cn.asrobot.form.model.OptionItem;
 import cn.asrobot.form.utils.ViewUtils;
 
 public class FormSinglePickerView extends FrameLayout {
@@ -28,7 +29,7 @@ public class FormSinglePickerView extends FrameLayout {
     private EditText editText;
     private boolean isRequired = false;
     private boolean isReadonly = false;
-    private List<String> options = new ArrayList<>();
+    private List<OptionItem<?>> options = new ArrayList<>();
     private int selectedIndex = -1;
 
     public FormSinglePickerView(Context context) {
@@ -57,7 +58,7 @@ public class FormSinglePickerView extends FrameLayout {
 
                 Drawable iconEnd = a.getDrawable(R.styleable.FormSinglePickerView_iconEnd);
                 if (iconEnd == null) {
-                    iconEnd = getResources().getDrawable(R.drawable.ic_arrow_down); // 默认下拉箭头图标
+                    iconEnd = getResources().getDrawable(R.drawable.ic_arrow_down);
                 }
                 int iconWidth = (int) a.getDimension(R.styleable.FormSinglePickerView_iconWidth, ViewUtils.dpToPx(context, 20));
                 int iconHeight = (int) a.getDimension(R.styleable.FormSinglePickerView_iconHeight, ViewUtils.dpToPx(context, 20));
@@ -95,12 +96,17 @@ public class FormSinglePickerView extends FrameLayout {
         TextView btnConfirm = view.findViewById(R.id.btn_confirm);
         TextView btnCancel = view.findViewById(R.id.btn_cancel);
 
-        picker.setItems(options);
+        List<String> labels = new ArrayList<>();
+        for (OptionItem<?> item : options) {
+            labels.add(item.getLabel());
+        }
+
+        picker.setItems(labels);
         picker.setSelectedItem(Math.max(selectedIndex, 0));
 
         btnConfirm.setOnClickListener(v -> {
             selectedIndex = picker.getSelectedItemIndex();
-            editText.setText(options.get(selectedIndex));
+            editText.setText(options.get(selectedIndex).getLabel());
             dialog.dismiss();
         });
 
@@ -110,21 +116,43 @@ public class FormSinglePickerView extends FrameLayout {
         dialog.show();
     }
 
-    public void setOptions(List<String> options) {
+    // 设置选项（泛型）
+    public void setOptions(List<OptionItem<?>> options) {
         this.options = options;
     }
 
-    public String getValue() {
-        return editText.getText().toString();
+    // 获取选中值（泛型 Object）
+    @Nullable
+    public Object getValue() {
+        if (selectedIndex >= 0 && selectedIndex < options.size()) {
+            return options.get(selectedIndex).getValue();
+        }
+        return null;
     }
 
-    public void setValue(String value) {
-        editText.setText(value);
-        selectedIndex = options.indexOf(value);
+    // 获取 label（用于外部显示等）
+    @Nullable
+    public String getLabel() {
+        if (selectedIndex >= 0 && selectedIndex < options.size()) {
+            return options.get(selectedIndex).getLabel();
+        }
+        return null;
+    }
+
+    // 设置选中值
+    public void setValue(Object value) {
+        for (int i = 0; i < options.size(); i++) {
+            Object itemValue = options.get(i).getValue();
+            if (itemValue != null && itemValue.equals(value)) {
+                selectedIndex = i;
+                editText.setText(options.get(i).getLabel());
+                return;
+            }
+        }
     }
 
     public boolean validate() {
-        if (isRequired && TextUtils.isEmpty(getValue())) {
+        if (isRequired && TextUtils.isEmpty(editText.getText().toString())) {
             editText.setError("此项为必选");
             return false;
         }

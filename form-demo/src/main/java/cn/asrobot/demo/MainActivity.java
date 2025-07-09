@@ -26,16 +26,5 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        FormSinglePickerView pickerGender = findViewById(R.id.picker_gender);
-
-        List<String> genderOptions = Arrays.asList("男", "女", "其他");
-        pickerGender.setOptions(genderOptions);
-
-        pickerGender.setValue("女");
-
-        String selected = pickerGender.getValue();
-
-        boolean isValid = pickerGender.validate(); // 如果未选中会显示错误提示
-
     }
 }

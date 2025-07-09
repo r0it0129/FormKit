@@ -31,7 +31,7 @@ dependencyResolutionManagement {
         maven { url = uri("https://jitpack.io") } // ✅ 添加这一行
     }
 }
-
+```
 
 ---
 
