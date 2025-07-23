@@ -59,13 +59,20 @@
         android:id="@+id/picker_gender"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:hint="客户类型"
-        app:required="true"
-        app:readonly="false"
-        app:borderColor="#DDDDDD"
-        app:cornerRadius="8dp"
-        app:borderWidth="1dp"
         app:backgroundColor="#FFFFFF"
-        app:layout_constraintTop_toBottomOf="@+id/formDatePicker" />
+        app:borderColor="#DDDDDD"
+        app:borderWidth="1dp"
+        app:cornerRadius="8dp"
+        app:hint="客户类型"
+        app:layout_constraintTop_toBottomOf="@+id/formDatePicker"
+        app:readonly="false"
+        app:required="true" />
+
+    <Button
+        android:id="@+id/button_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="确定"
+        app:layout_constraintTop_toBottomOf="@+id/picker_gender" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
